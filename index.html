@@ -119,10 +119,14 @@
     // 🧠 You can merge the result array back into a string by using join. Example: ["f", "o", "o"].join("") yields "foo"
     // 🧠 Do not forget to return your rejoined string!
     function stripX(string) { 
-      let split = string.split(" ")
+      let split = string.split("string")
       for (let string in split) {
-        console.log(split)
       }
+      if (typeof string !== "string") {
+        return 'arg must be a string'
+      }
+      let result = string.replace(/x/g, "")
+      return result
       return [].join(" ")
     }
     
@@ -136,7 +140,7 @@
     // ❗ Important Notes:
     // 🧠 Try to solve this problem without looking at how you solved the previous one.
     // 🧠 If you need to look, do not copy & paste code. Take a peek and then work from memory!
-    function stripChar() {
+    function stripChar(string, character) {
 
     }
 
@@ -149,10 +153,12 @@
     // getProps({ lastName: "Smith", age: 35 }) // should return ["lastName"]
     // getProps({ firstName: "Jane", married: false }) // should return ["firstName"]
     // getProps({ name: "Bamby", favFood: "flowers" }) // should return ["name", "favFood"]
-    function getProps() {
-
+    function getProps(obj) {
+      
+      
+      return []
     }
-
+    
     // 🧪 TESTS, do not work below this line
     // 🧪 TESTS, do not work below this line
     // 🧪 TESTS, do not work below this line
