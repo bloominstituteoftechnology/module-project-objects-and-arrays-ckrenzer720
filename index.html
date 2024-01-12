@@ -54,13 +54,10 @@
     // 🧠 Examples of usage:
     // deletePrice({ item: "Tesla Model 3", price: 40000 }) // should return { item: "Tesla Model 3" }
     // deletePrice({ item: "Kobo Libra 2" }) // should return { item: "Kobo Libra 2", priceless: true }
-    function deletePrice(obj, price) {
-      let hasPrice = deletePrice
-      let noPrice = true
-      if (!hasPrice) {
-        return priceless
-      }
+    function deletePrice(item, price) {
     }
+    let r1 = deletePrice({ item: "Tesla Model 3", price: 40000 }) // should return { item: "Tesla Model 3" } //r1 = result1
+    let r2 = deletePrice({ item: "Kobo Libra 2" }) // should return { item: "Kobo Libra 2", priceless: true } //r2 = result2
 
     // 👉 CHALLENGE 4
     // 🧠 The function evenList takes an array as its argument and returns true if the array has an even number of elements, false otherwise.
@@ -84,8 +81,13 @@
     // 🧠 Examples of usage:
     // firstOrLast(['a', 'b'], true) // should return 'a'
     // firstOrLast(['a', 'b'], false) // should return 'b'
-    function firstOrLast() {
-
+    function firstOrLast(arr, Boolean) {
+      let array = [1, Boolean]
+      if (Boolean) {
+        return arr[0]
+      } else if (!Boolean) {
+        return arr.at(-1)
+      }
     }
 
     // 👉 CHALLENGE 6
@@ -94,9 +96,15 @@
     // 🧠 Examples of usage:
     // pushElement([], 1) // should return [1]
     // pushElement(['a', 'b'], 'c') // should return ['a', 'b', 'c']
-    function pushElement() {
-
+    function pushElement(array, value ) {
+      if (!Array.isArray(array)) {
+      return 'Error: First argument must be an array';
+     }
+    array.push(value);
+    return array;
     }
+    let result1 = pushElement([], 1); // [1]
+    let result2 = pushElement(['a', 'b'], 'c'); // ['a', 'b', 'c']
 
     // 👉 CHALLENGE 7
     // 🧠 The function stripX takes a string as its argument.
@@ -110,9 +118,14 @@
     // 🧠 At each iteration of the loop, if the current character is not "x", then add it to the end of the result array.
     // 🧠 You can merge the result array back into a string by using join. Example: ["f", "o", "o"].join("") yields "foo"
     // 🧠 Do not forget to return your rejoined string!
-    function stripX() {
-
+    function stripX(string) { 
+      let split = string.split(" ")
+      for (let string in split) {
+        console.log(split)
+      }
+      return [].join(" ")
     }
+    
 
     // 👉 CHALLENGE 8
     // 🧠 The function stripChar takes a string as its first argument and a character as its second argument.
