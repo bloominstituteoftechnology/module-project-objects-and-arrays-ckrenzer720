@@ -54,10 +54,14 @@
     // 🧠 Examples of usage:
     // deletePrice({ item: "Tesla Model 3", price: 40000 }) // should return { item: "Tesla Model 3" }
     // deletePrice({ item: "Kobo Libra 2" }) // should return { item: "Kobo Libra 2", priceless: true }
-    function deletePrice(item, price) {
+    function deletePrice(obj) {
+     if ("price" in obj) {
+      delete obj.price
+     } else {
+      obj.priceless = true
+     }
+     return obj
     }
-    let r1 = deletePrice({ item: "Tesla Model 3", price: 40000 }) // should return { item: "Tesla Model 3" } //r1 = result1
-    let r2 = deletePrice({ item: "Kobo Libra 2" }) // should return { item: "Kobo Libra 2", priceless: true } //r2 = result2
 
     // 👉 CHALLENGE 4
     // 🧠 The function evenList takes an array as its argument and returns true if the array has an even number of elements, false otherwise.
@@ -97,14 +101,12 @@
     // pushElement([], 1) // should return [1]
     // pushElement(['a', 'b'], 'c') // should return ['a', 'b', 'c']
     function pushElement(array, value ) {
-      if (!Array.isArray(array)) {
-      return 'Error: First argument must be an array';
-     }
-    array.push(value);
-    return array;
+      let newNum = array.length
+      array[newNum] = value 
+      return array
     }
-    let result1 = pushElement([], 1); // [1]
-    let result2 = pushElement(['a', 'b'], 'c'); // ['a', 'b', 'c']
+   
+    
 
     // 👉 CHALLENGE 7
     // 🧠 The function stripX takes a string as its argument.
@@ -140,8 +142,17 @@
     // ❗ Important Notes:
     // 🧠 Try to solve this problem without looking at how you solved the previous one.
     // 🧠 If you need to look, do not copy & paste code. Take a peek and then work from memory!
-    function stripChar(string, character) {
+    function stripChar(str, char) {
+      let splitStr = str.split('')
+      let result = []
 
+      for (let idx in splitStr) {
+        let character = splitStr[idx]
+        if (character !== char) {
+          result[result.length] = character
+        }
+      }
+      return result.join('')
     }
 
     // 👉 CHALLENGE 9
@@ -154,11 +165,15 @@
     // getProps({ firstName: "Jane", married: false }) // should return ["firstName"]
     // getProps({ name: "Bamby", favFood: "flowers" }) // should return ["name", "favFood"]
     function getProps(obj) {
-      
-      
-      return []
+      let result = []
+      for (let key in obj) {
+        if (key !== 'age' && key !== 'married') {
+          result[result.length] = key
+        }
+      }
+      return result
+
     }
-    
     // 🧪 TESTS, do not work below this line
     // 🧪 TESTS, do not work below this line
     // 🧪 TESTS, do not work below this line
